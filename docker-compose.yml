@@ -4,6 +4,9 @@ services:
   pzserver:
     image: pzserver
     container_name: pzserver
+    environment:
+      SERVER_NAME: "servertest"
+      ADMIN_PASSWORD: "admin"
     ports:
       - "16261-16262:16261-16262/udp"
     volumes:
@@ -11,4 +14,4 @@ services:
       - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
       - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
     restart: unless-stopped
-    command: ["bash", "/pzserver/start-server.sh"]
+    command: ["bash", "/pzserver/start-server.sh", "-servername", "${SERVER_NAME}", "-adminpassword", "${ADMIN_PASSWORD}"]
