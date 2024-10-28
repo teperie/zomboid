@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  pzserver:
+    image: pzserver
+    container_name: pzserver
+    ports:
+      - "16261-16262:16261-16262/udp"
+    volumes:
+      - ./ini:/root/Zomboid/Server
+      - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
+      - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
+    restart: unless-stopped
+    command: ["bash", "/pzserver/start-server.sh"]
