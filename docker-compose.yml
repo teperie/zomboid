@@ -10,8 +10,8 @@ services:
     ports:
       - "16261-16262:16261-16262/udp"
     volumes:
-      - ./ini:/root/Zomboid/Server
+      - ./settings:/root/Zomboid/Server
       - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
       - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
     restart: unless-stopped
-    command: ["bash", "/pzserver/start-server.sh", "-servername", "${SERVER_NAME}", "-adminpassword", "${ADMIN_PASSWORD}"]
+    command: ["bash", "/pzserver/start-server-with-param.sh"]

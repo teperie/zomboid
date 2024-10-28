@@ -6,4 +6,8 @@ WORKDIR /pzserver
 # Install Project Zomboid dedicated server
 RUN steamcmd +login anonymous +force_install_dir /pzserver +app_update 380870 validate +quit
 
-EXPOSE 16261-16262/udp
+COPY ./start-server-with-param.sh /pzserver/start-server-with-params.sh
+
+RUN chmod +x /pzserver/start-server-with-params.sh
+
+EXPOSE 16261/udp 16262/udp
