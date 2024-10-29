@@ -3,13 +3,15 @@ services:
     image: pzserver
     container_name: pzserver
     environment:
+      # Edit here
       SERVER_NAME: "servertest"
       ADMIN_PASSWORD: "admin"
     ports:
-      - "16261-16262:16261-16262/udp"
+      - "16261:16261/udp"
+      - "16262:16262/udp"
     volumes:
       - ./settings:/root/Zomboid/Server
-      - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
-      - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
+      # - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
+      # - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
     restart: unless-stopped
     command: ["bash", "/pzserver/start-server-with-param.sh"]
