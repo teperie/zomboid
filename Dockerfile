@@ -11,3 +11,5 @@ COPY ./start-server-with-param.sh /pzserver/start-server-with-param.sh
 RUN chmod +x /pzserver/start-server-with-param.sh
 
 EXPOSE 16261/udp 16262/udp
+
+ENTRYPOINT []
