@@ -9,15 +9,16 @@ services:
       SERVER_NAME: "servertest"
       ADMIN_USERNAME: "admin"
       ADMIN_PASSWORD: "admin"
-      OPTS: ""
+      # Other server parameters.
+      # OPTS: "-port 12345"
     ports:
       - "16261:16261/udp"
       - "16262:16262/udp"
     volumes:
       - ./settings:/root/Zomboid/Server
-      - ./saves:/root/Zomboid/saves/Saves/Multiplayer
+      - ./saves:/root/Zomboid/Saves/Multiplayer
       - ./mods:/pzserver/steamapps/workshop/content/108600
-      # Uncomment the line below after creating the new JSON file.
+      # Uncomment the line below after creating the new JVM option.
       # - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
       # - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
     restart: unless-stopped

@@ -12,4 +12,4 @@ RUN chmod +x /pzserver/start-server-with-param.sh
 
 EXPOSE 16261/udp 16262/udp
 
-ENTRYPOINT ["/pzserver/start-server-with-param.sh"]
+ENTRYPOINT ["bash", "/pzserver/start-server-with-param.sh"]
