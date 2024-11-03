@@ -30,7 +30,7 @@ This is Docker image for running Project Zomboid Dedicated Server.
        volumes:
          - ./settings:/root/Zomboid/Server
          - ./saves:/root/Zomboid/Saves/Multiplayer
-         - ./mods:/pzserver/steamapps/workshop/content/108600
+         - ./mods:/pzserver/steamapps
          # Uncomment the line below after creating the new JVM option.
          # - ./ProjectZomboid64.json:/pzserver/ProjectZomboid64.json
          # - ./ProjectZomboid32.json:/pzserver/ProjectZomboid32.json
