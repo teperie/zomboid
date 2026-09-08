@@ -1,4 +1,10 @@
-FROM steamcmd/steamcmd:latest
+FROM steamcmd/steamcmd:ubuntu-22
+
+# Apply the latest security updates and remove package metadata from the image.
+RUN apt-get update \
+	&& apt-get dist-upgrade -y \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /pzserver
 WORKDIR /pzserver
